@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="info"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/motion_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="blocksDescendants"
+        app:layoutDescription="@xml/fragment_home_xml_constraintlayout_scene"
+        tools:context=".ui.home.HomeFragment">
+
+        <com.airbnb.epoxy.EpoxyRecyclerView
+            android:id="@+id/epoxy_home"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:scrollbars="none"
+            android:descendantFocusability="blocksDescendants"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_info" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_info"
+            style="@style/Theme.MovieEpoxy.HeaderInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/covid_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Get the latest on our COVID-19 response" />
+
+        <View
+            android:id="@+id/toolbar_home"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:alpha="0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/btn_search_home"
+            app:layout_constraintTop_toBottomOf="@+id/tv_info"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_search_home"
+            style="@style/Theme.MovieEpoxy.ButtonCenterContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginBottom="2dp"
+            android:backgroundTint="@color/white"
+            android:text="@string/looking_for_something"
+            app:icon="@drawable/ic_search"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar_home"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/toolbar_home" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>

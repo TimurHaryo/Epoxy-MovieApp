@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="description"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:paddingHorizontal="18dp"
+        android:paddingVertical="24dp"
+        android:orientation="vertical"
+        tools:background="@color/black">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_learn_more_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@{description}"
+            tools:text="@string/learn_more_winter_release" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_learn_more"
+            style="@style/Theme.MovieEpoxy.ButtonDefault"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            android:paddingVertical="14dp"
+            android:text="@string/learn_more"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</layout>

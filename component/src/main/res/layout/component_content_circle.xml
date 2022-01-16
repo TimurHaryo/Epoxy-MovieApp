@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="movie"
+            type="id.timtam.component.model.EpoxyMovieSnippet" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="8dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_content_circle"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/CircleImageView"
+            app:urlImage="@{movie.poster}"
+            tools:srcCompat="@color/purple_200" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_title_content_title"
+            style="@style/Theme.MovieEpoxy.Heading4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:maxLines="1"
+            android:text="@{movie.title}"
+            app:layout_constraintBottom_toTopOf="@+id/tv_title_content_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/iv_content_circle"
+            app:layout_constraintTop_toTopOf="@id/iv_content_circle"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_title_content_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:maxLines="1"
+            android:text="@{movie.duration}"
+            app:layout_constraintBottom_toBottomOf="@id/iv_content_circle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/iv_content_circle"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_content_title"
+            tools:text="2 Hours 37 Minutes" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

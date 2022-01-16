@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="buttonTitle"
+            type="String" />
+
+        <variable
+            name="imageSource"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/view_top_big_banner"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/view_bottom_big_banner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@color/black" />
+
+        <View
+            android:id="@+id/view_bottom_big_banner"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_top_big_banner"
+            tools:background="@color/purple_200" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:cardCornerRadius="24dp"
+            app:layout_constraintBottom_toBottomOf="@id/view_bottom_big_banner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view_top_big_banner">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_big_banner"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="h,1:1.2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:urlImage="@{imageSource}"
+                    tools:srcCompat="@color/teal_700" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_big_title_top"
+                    style="@style/Theme.MovieEpoxy.Heading2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:gravity="start"
+                    android:text="@{title}"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.65"
+                    tools:text="@string/things_to_do" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_big_banner_top"
+                    style="@style/Theme.MovieEpoxy.ButtonDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="@color/white"
+                    android:text="@{buttonTitle}"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_big_title_top"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_big_title_top"
+                    tools:text="@string/experiences" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_big_title_bottom"
+                    style="@style/Theme.MovieEpoxy.Heading2"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="24dp"
+                    android:text="@{title}"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toTopOf="@+id/btn_big_banner_bottom"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.25"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="@string/not_sure_to_go" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_big_banner_bottom"
+                    style="@style/Theme.MovieEpoxy.ButtonCenterContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:backgroundTint="@color/white"
+                    android:text="@{buttonTitle}"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_big_banner"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="I'm Flexible" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/group_top_redaction"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="visible"
+                    app:constraint_referenced_ids="tv_big_title_top, btn_big_banner_top" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/group_bottom_redaction"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="gone"
+                    app:constraint_referenced_ids="tv_big_title_bottom, btn_big_banner_bottom" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

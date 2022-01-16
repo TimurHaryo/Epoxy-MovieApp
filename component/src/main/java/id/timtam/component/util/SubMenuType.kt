@@ -1,0 +1,14 @@
+package id.timtam.component.util
+
+enum class SubMenuType {
+    SUPPORT_HELP_CENTER,
+    SUPPORT_CANCELLATION,
+    SUPPORT_COVID_RESPONSE,
+
+    HOSTING_EXPLORE,
+    HOSTING_AIR_COVER,
+    HOSTING_SUPPORT_REFUGEES,
+
+    ABOUT_NEWSROOM,
+    ABOUT_WINTER_RELEASE
+}
